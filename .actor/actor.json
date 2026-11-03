@@ -1,1 +1,11 @@
-{"actorSpecification":1,"name":"site-agent-readiness-audit","title":"Website Agent-Readiness & Metadata Audit","version":"0.1","description":"For each URL: title, meta, canonical, Open Graph, JSON-LD types, emails, social links, robots.txt, sitemap, llms.txt presence, and a 0-100 agent-readiness score.","input":"./input_schema.json","dockerfile":"../Dockerfile"}
+{
+  "actorSpecification": 1,
+  "name": "site-agent-readiness-audit",
+  "title": "Website Agent-Readiness & Metadata Audit",
+  "version": "0.1",
+  "description": "For each URL: title, meta, canonical, Open Graph, JSON-LD types, emails, social links, robots.txt, sitemap, llms.txt presence, and a 0-100 agent-readiness score.",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": { "dataset": "./dataset_schema.json" },
+  "dockerfile": "../Dockerfile"
+}

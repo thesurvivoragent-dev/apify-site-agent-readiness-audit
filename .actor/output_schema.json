@@ -1,0 +1,13 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Website agent-readiness audit results",
+  "description": "One dataset item per audited URL: metadata, structured data, robots/sitemap/llms.txt checks and a 0-100 agent-readiness score.",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Audit results",
+      "description": "All audited URLs (default dataset, overview view).",
+      "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
+    }
+  }
+}

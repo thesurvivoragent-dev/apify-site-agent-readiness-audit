@@ -1,0 +1,49 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "type": "object",
+    "properties": {
+      "inputUrl":            { "type": "string",  "description": "URL as given in the input", "example": "example.com" },
+      "finalUrl":            { "type": "string",  "description": "URL after redirects" },
+      "status":              { "type": "integer", "description": "HTTP status of the page (0 = unreachable)" },
+      "title":               { "type": ["string", "null"], "description": "<title> of the page" },
+      "description":         { "type": ["string", "null"], "description": "Meta description" },
+      "canonical":           { "type": ["string", "null"], "description": "Canonical link" },
+      "lang":                { "type": ["string", "null"], "description": "<html lang> attribute" },
+      "ogTitle":             { "type": ["string", "null"], "description": "Open Graph title" },
+      "ogImage":             { "type": ["string", "null"], "description": "Open Graph image URL" },
+      "jsonLdTypes":         { "type": "array",   "description": "Schema.org @type values found in JSON-LD", "example": ["Organization", "WebSite"] },
+      "emails":              { "type": "array",   "description": "Email addresses found on the page (max 10)" },
+      "socialLinks":         { "type": "array",   "description": "Social profile links found (max 15)" },
+      "hasRobotsTxt":        { "type": "boolean", "description": "robots.txt is reachable" },
+      "hasSitemap":          { "type": "boolean", "description": "sitemap.xml is reachable and valid" },
+      "hasLlmsTxt":          { "type": "boolean", "description": "llms.txt is present" },
+      "robotsBlocksAI":      { "type": "boolean", "description": "robots.txt has rules for AI crawlers (GPTBot, ClaudeBot, CCBot, Google-Extended)" },
+      "agentReadinessScore": { "type": "integer", "description": "Agent-readiness score from 0 to 100", "example": 75 },
+      "error":               { "type": "string",  "description": "Error message if the audit failed" }
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "transformation": {
+        "fields": ["inputUrl", "agentReadinessScore", "status", "title", "hasLlmsTxt", "hasSitemap", "hasRobotsTxt", "robotsBlocksAI", "jsonLdTypes", "error"]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "inputUrl":            { "label": "URL", "format": "link" },
+          "agentReadinessScore": { "label": "Score", "format": "number" },
+          "status":              { "label": "HTTP", "format": "number" },
+          "title":               { "label": "Title", "format": "text" },
+          "hasLlmsTxt":          { "label": "llms.txt", "format": "boolean" },
+          "hasSitemap":          { "label": "Sitemap", "format": "boolean" },
+          "hasRobotsTxt":        { "label": "robots.txt", "format": "boolean" },
+          "robotsBlocksAI":      { "label": "AI rules", "format": "boolean" },
+          "jsonLdTypes":         { "label": "JSON-LD", "format": "array" },
+          "error":               { "label": "Error", "format": "text" }
+        }
+      }
+    }
+  }
+}
