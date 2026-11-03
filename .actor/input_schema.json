@@ -1,0 +1,1 @@
+{"title":"Input","type":"object","schemaVersion":1,"properties":{"urls":{"title":"URLs","type":"array","description":"Website URLs to audit","editor":"stringList","prefill":["https://example.com"]}},"required":["urls"]}
